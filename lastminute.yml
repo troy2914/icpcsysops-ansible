@@ -10,6 +10,12 @@
   roles:
     - role: coachview
 
+- name: Human judges machines
+  hosts: judge*
+  roles:
+    - role: reverseproxy
+      when: enable_reverseproxy is defined and enable_reverseproxy
+
 - name: Configure contestant machines
   hosts: contestants
   roles:
